@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Magical Bakery</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Patrick+Hand&amp;family=Fredoka:wght@300;400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF9EAA",
+                        "primary-dark": "#FF7B8F",
+                        "parchment": "#FDF6E3",
+                        "parchment-dark": "#3E362E",
+                        "ink": "#5D4037",
+                        "ink-light": "#8D6E63",
+                        "pastel-blue": "#AEC6CF",
+                        "pastel-green": "#BCE29E",
+                        "pastel-yellow": "#FDFD96",
+                        "pastel-purple": "#C3B1E1",
+                        "pastel-orange": "#FFB347",
+                    },
+                    fontFamily: {
+                        "display": ["Fredoka", "sans-serif"],
+                        "hand": ["Patrick Hand", "cursive"],
+                    },
+                    boxShadow: {
+                        'chibi': '4px 4px 0px 0px rgba(93, 64, 55, 0.1)',
+                        'chibi-hover': '6px 6px 0px 0px rgba(93, 64, 55, 0.15)',
+                        'sketch': '2px 2px 5px rgba(0,0,0,0.05)',
+                    },
+                    backgroundImage: {
+                        'parchment-texture': "url(\"data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08' fill='%23daceb8'/%3E%3C/svg%3E\")",
+                        'doodle-corner': "url(\"data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10,10 Q30,5 50,20 T90,10' fill='none' stroke='%23FF9EAA' stroke-width='2' stroke-dasharray='5,5' opacity='0.3'/%3E%3C/svg%3E\")"
+                    },
+                    borderRadius: {
+                        'wobbly': '255px 15px 225px 15px / 15px 225px 15px 255px',
+                        'wobbly-sm': '20px 5px 20px 5px / 5px 20px 5px 20px',
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body
+    class="bg-parchment dark:bg-parchment-dark text-ink dark:text-gray-100 font-display min-h-screen relative overflow-x-hidden selection:bg-primary/30">
+    <div
+        class="fixed top-0 left-0 w-64 h-64 bg-pastel-yellow/30 rounded-full blur-[60px] -translate-x-10 -translate-y-10 pointer-events-none z-0">
+    </div>
+    <div
+        class="fixed bottom-0 right-0 w-80 h-80 bg-pastel-blue/20 rounded-full blur-[80px] translate-x-10 translate-y-10 pointer-events-none z-0">
+    </div>
+    <div class="fixed inset-0 bg-parchment-texture pointer-events-none z-0 mix-blend-multiply opacity-60"></div>
+    <div class="fixed top-4 left-4 z-0 opacity-20 pointer-events-none rotate-[-10deg]">
+        <svg fill="none" height="100" stroke="#5D4037" stroke-linecap="round" stroke-width="2" viewBox="0 0 100 100"
+            width="100">
+            <path d="M10,10 Q30,5 50,20 T90,10 M15,25 Q35,20 55,35"></path>
+            <circle cx="20" cy="50" fill="#5D4037" r="3"></circle>
+            <circle cx="35" cy="65" fill="#5D4037" r="2"></circle>
+            <circle cx="10" cy="70" fill="none" r="4" stroke="#5D4037"></circle>
+        </svg>
+    </div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+        <header class="w-full px-6 py-6 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div
+                    class="w-12 h-12 rounded-[30%_70%_70%_30%/30%_30%_70%_70%] bg-primary flex items-center justify-center text-white shadow-chibi border-2 border-ink transform -rotate-3 hover:rotate-3 transition-transform">
+                    <span class="material-symbols-outlined text-[28px]">bakery_dining</span>
+                </div>
+                <div>
+                    <h1 class="font-hand font-bold text-3xl text-ink dark:text-white tracking-wide">Magical Bakery</h1>
+                    <p
+                        class="text-sm text-ink-light dark:text-gray-400 font-display font-medium tracking-wide opacity-80">
+                        ~ Magical Storage ~</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <button id="notificationBtn"
+                    class="w-12 h-12 rounded-full bg-white border-2 border-ink-light/20 flex items-center justify-center text-ink-light hover:text-primary hover:border-primary transition-all shadow-sm hover:rotate-12"
+                    title="Enable Alarms">
+                    <span class="material-symbols-outlined text-[24px]">notifications</span>
+                </button>
+                <div
+                    class="h-12 w-12 rounded-full border-2 border-primary p-1 cursor-pointer bg-white shadow-chibi overflow-hidden">
+                    <img alt="User Profile" class="rounded-full h-full w-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf19yF_0baSt2WiGYWzJ1gD6udkH0eYZAeXnZtk6U5jKNq7OFVnhXPw3KrjZ-ZBRHsawlAPAfiuqyTXFW9zpbvDAIXN4NvRiBZ39RYjJkBKaer2fSu4GBXnB7qKHhNewVdTwphiMvcXneXHehQG-zyoUSv2WVngBCe2Cgi5oLjM6MNqlTcLncjk8a124ZsWrI0CSjPeBBb5uWIvBugAtdNMT_BgOrJeI6efProKCS8kbW7mpPBedOPiHu0LowqhVXXuLbnX_rDtiQ" />
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-1 flex flex-col items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-20">
+            <div class="w-full max-w-3xl mb-12">
+                <div class="text-center mb-8 relative">
+                    <h2
+                        class="font-hand text-5xl font-bold text-ink dark:text-white mb-2 sketch-glow transform -rotate-1">
+                        Inventory Magic</h2>
+                    <p class="text-ink-light dark:text-gray-400 font-display text-lg">Scribble down your goodies here!
+                    </p>
+                    <svg class="absolute -right-8 top-0 w-12 h-12 text-pastel-purple opacity-60 animate-bounce"
+                        fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2L15 8L21 9L17 14L18 20L12 17L6 20L7 14L3 9L9 8L12 2Z"></path>
+                    </svg>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 p-3 hand-drawn-border shadow-chibi relative">
+                    <form id="addItemForm" class="flex flex-col md:flex-row gap-3">
+                        <div class="flex-1 relative group">
+                            <div
+                                class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary">
+                                <span class="material-symbols-outlined">edit</span>
+                            </div>
+                            <input id="itemName"
+                                class="w-full h-14 pl-12 pr-4 bg-parchment border-2 border-dashed border-ink-light/30 rounded-xl text-ink placeholder-ink-light/50 focus:border-primary focus:ring-0 focus:border-solid transition-all font-hand text-xl"
+                                placeholder="Yummy Item (e.g. Chibi Bread)" type="text" required />
+                        </div>
+                        <div class="w-full md:w-48 relative group">
+                            <div
+                                class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary">
+                                <span class="material-symbols-outlined">event</span>
+                            </div>
+                            <input id="expiryDate"
+                                class="w-full h-14 pl-12 pr-4 bg-parchment border-2 border-dashed border-ink-light/30 rounded-xl text-ink focus:border-primary focus:ring-0 focus:border-solid transition-all font-hand text-xl cursor-pointer"
+                                type="date" required />
+                        </div>
+                        <button
+                            class="h-14 md:w-20 bg-primary hover:bg-primary-dark text-white rounded-xl border-2 border-ink flex items-center justify-center transition-all shadow-chibi active:translate-y-1 active:shadow-none group relative overflow-hidden"
+                            type="submit">
+                            <div
+                                class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                            </div>
+                            <span
+                                class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform font-bold">add</span>
+                        </button>
+                    </form>
+                    <div class="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-ink rounded-tl-lg"></div>
+                    <div class="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-ink rounded-br-lg">
+                    </div>
+                </div>
+            </div>
+
+            <div id="statsContainer" class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full mb-10">
+                <!-- Stats will be inserted here by JS -->
+            </div>
+
+            <div class="w-full flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
+                <div class="flex gap-3 overflow-x-auto pb-2 md:pb-0 scrollbar-hide w-full sm:w-auto">
+                    <button
+                        class="px-6 py-2 rounded-full border-2 border-ink bg-ink text-white font-hand text-lg shadow-md transform hover:scale-105 transition-transform">All
+                        Stuff</button>
+                    <!-- Filter buttons can be implemented later or kept as placeholders -->
+                </div>
+                <!-- Sort dropdown can be implemented later -->
+            </div>
+
+            <div id="inventoryGrid" class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Items will be injected here by script.js -->
+            </div>
+
+            <div class="mt-12 w-full flex justify-center text-ink-light font-hand text-lg opacity-60">
+                <p>~ No more items to summon ~</p>
+            </div>
+        </main>
+
+        <!-- Toast Container -->
+        <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
+            <!-- Toasts will be injected here -->
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>

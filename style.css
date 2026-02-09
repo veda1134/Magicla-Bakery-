@@ -1,0 +1,49 @@
+::-webkit-scrollbar {
+    width: 10px
+}
+
+::-webkit-scrollbar-track {
+    background: #f4ecd8
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FF9EAA;
+    border-radius: 10px;
+    border: 2px solid #f4ecd8
+}
+
+.hand-drawn-border {
+    border: 2px solid #5D4037;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px
+}
+
+.sketch-glow {
+    filter: drop-shadow(0 0 5px rgba(255, 158, 170, 0.6))
+}
+
+.handwritten-btn {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBeKjwisAcE0qQMw9u8KbsYLIyrbSSB8V6iM0syByURx4qlhs2xoXxfWWQ9PkHwj4SSCiee4haRk53nLQXqJR85mRXNQlsC6qDCHqZCbs1_hm5PMj8rOKePgmZkpQq76P_4iY9Z_7m3sdxFxCEX8vI73KL2Q8t23uYEfSKjqho_0fuZeVAFSZUHQI2ldAtWxFmxnbkpqVfh_z-JmJHjhPbX3447-lTFxbo_j-Rch8iSB06CMOvazBDdwcAq8-_u5ikHQIn-v84sJ04)
+}
+
+/* Base styles for notifications */
+.toast-enter {
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.toast-enter-active {
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.toast-exit {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.toast-exit-active {
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 0.5s ease-in;
+}
